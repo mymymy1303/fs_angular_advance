@@ -1,3 +1,4 @@
 angular.module('app.filters', [
-	'html.filter'
+	'html.filter',
+	'pagination.filter'
 ])
