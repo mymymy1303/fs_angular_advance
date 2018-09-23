@@ -1,15 +1,18 @@
 .page-header
 	h1 {{title}}
 
+input(type="text" ng-model="searchInput")
+
 table.table.table-bordered
 	thead.thead-dark
 		tr 
 			th Username
 			th Email
 	tbody
-		tr(ng-repeat="item in data | UsersPagination: (currentPage - 1)*pageSize | limitTo: pageSize")
+		tr(ng-repeat="item in filteredData = (data | filter:{name: searchInput}) | UsersPagination: (currentPage - 1)*pageSize | limitTo: pageSize")
 			td {{item.name}}
 			td {{item.email}}
 
-ul(uib-pagination total-items="data.length" ng-model="currentPage" class="pagination-md" num-pages="numPages" item-per-pages="pageSize" max-size="maxSize" rotate="true" force-ellipses="true" boundary-link-numbers="true" boundary-links="true")
-pre {{currentPage}} / {{numPages}}
+ul(uib-pagination total-items="filteredData.length" ng-model="currentPage" class="pagination-md" items-per-page="pageSize" max-size="maxSize" rotate="true" force-ellipses="true" boundary-link-numbers="true" boundary-links="true")
+
+pre {{currentPage}} / {{(filteredData.length % pageSize === 0) ? filteredData.length/pageSize : (pagesNum = (filteredData.length/pageSize | number:0) - 0) > filteredData.length/pageSize ? pagesNum : pagesNum + 1}}

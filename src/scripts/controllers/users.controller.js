@@ -2,18 +2,22 @@ angular.module('users.controller', []).controller("UsersController", _usersContr
 
 
 
-function _usersController($scope, $http, UsersService) {
+function _usersController($scope, $http, $filter, UsersService) {
 	$scope.title = 'List of users'
 	$scope.currentPage = 1
 	$scope.pageSize = 10
-	$scope.maxSize = 7
+	$scope.maxSize = 3
+	$scope.searchInput = ""
+	$scope.pagesNum = 0
 
 	UsersService.get($http)
 		.then(response => {
 			$scope.data = response.data
-			$scope.numPages = $scope.data.length / $scope.pageSize
+			let temp = $scope.data.length / $scope.pageSize
+			$scope.numPages = (temp === parseInt(temp)) ? temp : Math.floor(temp) + 1
 		})
 		.catch(err => console.log(err))
+
 }
 
 function _usersFilter() {
