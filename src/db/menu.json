@@ -1,0 +1,36 @@
+{
+	"menu": [
+		{
+			"id": 1,
+			"name": "Trang chủ",
+			"url": "home",
+			"icon": "fa-home"
+		}, {
+			"id": 2,
+			"name": "Gian hàng",
+			"url": "shop",
+			"icon": "fa-shopping-cart"
+		}, {
+			"id": 3,
+			"name": "Dịch vụ",
+			"url": "services",
+			"icon": "fa-coffee"
+		}, {
+			"id": 4,
+			"name": "Về chúng tôi",
+			"url": "about",
+			"icon": "fa-archive"
+		}, {
+			"id": 5,
+			"name": "Liên hệ",
+			"url": "contact",
+			"icon": "fa-at"
+		},
+		{
+			"id": 6,
+			"name": "Users",
+			"url": "users",
+			"icon": "fa-user"
+		}
+	]
+}

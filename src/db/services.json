@@ -1,0 +1,25 @@
+{
+	"services": [
+		{
+			"id": 1,
+			"name": "Lorem ipsum dolor",
+			"src": "http://khaihoanspamassage.vn/photos/xong-hoi-xong-kho.jpg",
+			"desc": "Lorem ipsum dolor sit amet."
+		}, {
+			"id": 2,
+			"name": "Lorem ipsum dolor",
+			"src": "http://khaihoanspamassage.vn/photos/ngam-ho-nong-lanh.jpg",
+			"desc": "Lorem ipsum dolor sit amet."
+		}, {
+			"id": 3,
+			"name": "Lorem ipsum dolor",
+			"src": "http://khaihoanspamassage.vn/photos/ngam-thuoc-la-dao-do.jpg",
+			"desc": "Lorem ipsum dolor sit amet."
+		}, {
+			"id": 4,
+			"name": "Lorem ipsum dolor",
+			"src": "http://khaihoanspamassage.vn/photos/cha-lung.jpg",
+			"desc": "Lorem ipsum dolor sit amet."
+		}
+	]
+}

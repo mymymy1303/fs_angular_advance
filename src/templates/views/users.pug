@@ -1,0 +1,17 @@
+.page-header
+	h1 {{title}}
+
+.panel.panel-success
+	.panel-heading {{title}}
+		table.table
+			thead
+				tr 
+					th Username
+					th Email
+			tbody
+				tr(ng-repeat="item in data | UsersPagination: (currentPage - 1)*pageSize | limitTo: pageSize")
+					td {{item.name}}
+					td {{item.email}}
+
+ul(uib-pagination total-items="data.length" ng-model="currentPage" class="pagination-md" num-pages="numPages" item-per-pages="pageSize" max-size="maxSize" rotate="true" force-ellipses="true" boundary-link-numbers="true" boundary-links="true")
+pre {{currentPage}} / {{numPages}}

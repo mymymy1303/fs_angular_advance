@@ -1,0 +1,8 @@
+.row
+	.col-lg-6(ng-repeat="item in data")
+		a(ui-sref="services.detail({serviceId : item.id})")
+			figure.mt-4
+				img(ng-src="{{item.src}}", alt="").img-fluid
+				figcaption
+					h2 {{item.name}}
+					p {{item.desc}}
