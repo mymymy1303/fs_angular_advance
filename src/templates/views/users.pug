@@ -1,7 +1,9 @@
 .page-header
 	h1 {{title}}
 
-input(type="text" ng-model="searchInput")
+input(type="text" ng-model="searchInput" placeholder="Enter username or email")
+
+select(ng-options="item for item in pageSizeArray" ng-model="pageSize")
 
 table.table.table-bordered
 	thead.thead-dark
@@ -9,10 +11,12 @@ table.table.table-bordered
 			th Username
 			th Email
 	tbody
-		tr(ng-repeat="item in filteredData = (data | filter:{name: searchInput}) | UsersPagination: (currentPage - 1)*pageSize | limitTo: pageSize")
+		tr(ng-repeat="item in filteredData = (data | filter:searchInput) | pagination:filteredData:(currentPage - 1)*pageSize | limitTo: pageSize")
 			td {{item.name}}
 			td {{item.email}}
 
 ul(uib-pagination total-items="filteredData.length" ng-model="currentPage" class="pagination-md" items-per-page="pageSize" max-size="maxSize" rotate="true" force-ellipses="true" boundary-link-numbers="true" boundary-links="true")
 
 pre {{currentPage}} / {{(filteredData.length % pageSize === 0) ? filteredData.length/pageSize : (pagesNum = (filteredData.length/pageSize | number:0) - 0) > filteredData.length/pageSize ? pagesNum : pagesNum + 1}}
+
+input(type="number" min="1" step="1" ng-model="currentPage")

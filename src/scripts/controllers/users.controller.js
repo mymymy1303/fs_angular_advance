@@ -1,14 +1,15 @@
-angular.module('users.controller', []).controller("UsersController", _usersController).filter('UsersPagination', _usersFilter);
+angular.module('users.controller', []).controller("UsersController", _usersController)
 
 
 
 function _usersController($scope, $http, $filter, UsersService) {
 	$scope.title = 'List of users'
 	$scope.currentPage = 1
-	$scope.pageSize = 10
 	$scope.maxSize = 3
 	$scope.searchInput = ""
 	$scope.pagesNum = 0
+	$scope.pageSizeArray = [5, 10, 15, 20, 25]
+	$scope.pageSize = $scope.pageSizeArray[1]
 
 	UsersService.get($http)
 		.then(response => {
@@ -18,13 +19,4 @@ function _usersController($scope, $http, $filter, UsersService) {
 		})
 		.catch(err => console.log(err))
 
-}
-
-function _usersFilter() {
-	return (data, start) => {
-		if (!data || !data.length) {
-			return;
-		}
-		return data.slice(start)
-	}
 }
