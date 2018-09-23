@@ -8,14 +8,12 @@ function _usersController($scope, $http, UsersService) {
 	$scope.pageSize = 10
 	$scope.maxSize = 7
 
-	UsersService.get(
-		$http,
-		response => {
+	UsersService.get($http)
+		.then(response => {
 			$scope.data = response.data
 			$scope.numPages = $scope.data.length / $scope.pageSize
-		},
-		console.log("Đã có lỗi xảy ra")
-	)
+		})
+		.catch(err => console.log(err))
 }
 
 function _usersFilter() {
