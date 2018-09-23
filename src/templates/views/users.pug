@@ -11,7 +11,7 @@ table.table.table-bordered
 			th Username
 			th Email
 	tbody
-		tr(ng-repeat="item in filteredData = (data | filter:searchInput) | pagination:filteredData:(currentPage - 1)*pageSize | limitTo: pageSize")
+		tr(ng-repeat="item in filteredData = (data | filter:searchInput) | pagination:(currentPage - 1)*pageSize | limitTo: pageSize")
 			td {{item.name}}
 			td {{item.email}}
 
